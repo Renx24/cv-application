@@ -4,6 +4,7 @@ import EducationForm from "./components/forms/EducationForm";
 import ProfileForm from "./components/forms/ProfileForm";
 import ContactForm from "./components/forms/ContactForm";
 import EmploymentForm from "./components/forms/EmploymentForm";
+import SkillsForm from "./components/forms/SkillsForm";
 import Preview from "./components/Preview";
 import {
   Contact,
@@ -12,7 +13,7 @@ import {
   Education,
   Skills,
 } from "./components/types";
-import SkillsForm from "./components/forms/SkillsForm";
+import "./App.css";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState<string>("Contact");
