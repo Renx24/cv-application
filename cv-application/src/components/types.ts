@@ -1,4 +1,5 @@
 export interface Contact {
+    fullName: string;
     phoneNumber: string;
     email: string;
     location: string;
@@ -10,7 +11,7 @@ export interface Profile {
     profile: string;
 }
 
-export interface EmploymentHistory {
+export interface Employment {
     company: string;
     position: string;
     achievements?: string;

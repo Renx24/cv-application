@@ -51,7 +51,7 @@ const EducationForm = ({ onAddEducation }: EducationFormProps) => {
           type="text"
           name="fromDate"
           className="form-control"
-          placeholder="From date"
+          placeholder="From (year)"
           value={education.fromDate}
           onChange={handleChange}
         />
@@ -59,7 +59,7 @@ const EducationForm = ({ onAddEducation }: EducationFormProps) => {
           type="text"
           name="toDate"
           className="form-control"
-          placeholder="To date"
+          placeholder="To (year)"
           value={education.toDate}
           onChange={handleChange}
         />
