@@ -28,5 +28,5 @@ export interface Education {
 }
 
 export interface Skills {
-    skill: string;
+    skills: string;
 }

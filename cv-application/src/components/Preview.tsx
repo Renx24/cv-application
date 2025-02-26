@@ -89,13 +89,17 @@ const Preview = ({
         ))}
         {profileList.map((profile, index) => (
           <div key={index} className="border-bottom pb-2 mb-2">
-            <h6>Profile</h6>
+            <h6>
+              <u>Profile</u>
+            </h6>
             <p>{profile.profile}</p>
           </div>
         ))}
         {employmentList.map((employment, index) => (
           <div key={index} className="border-bottom pb-2 mb-2">
-            <h6>Employment history</h6>
+            <h6>
+              <u>Employment history</u>
+            </h6>
             <strong>{employment.company}</strong> ({employment.fromDate} -{" "}
             {employment.toDate})
             <p>
@@ -111,16 +115,20 @@ const Preview = ({
         ))}
         {educationList.map((edu, index) => (
           <div key={index} className="border-bottom pb-2 mb-2">
-            <h6>Education</h6>
+            <h6>
+              <u>Education</u>
+            </h6>
             <strong>{edu.school}</strong> ({edu.fromDate} - {edu.toDate})
             <p>{edu.field}</p>
           </div>
         ))}
         {skillList.map((skills, index) => (
           <div key={index} className="pb-2 mb-2">
-            <h6>Skills:</h6>
+            <h6>
+              <u>Skills:</u>
+            </h6>
             <ul>
-              <li>{skills.skill}</li>
+              <li>{skills.skills}</li>
             </ul>
           </div>
         ))}

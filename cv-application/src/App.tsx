@@ -22,22 +22,68 @@ const App = () => {
   const [employmentList, setEmploymentList] = useState<Employment[]>([]);
   const [profileList, setProfileList] = useState<Profile[]>([]);
   const [contactList, setContactList] = useState<Contact[]>([]);
-  const [skillList, setSkillList] = useState<Skills[]>([]);
+  const [skillsList, setSkillsList] = useState<Skills[]>([]);
 
   const addEducation = (edu: Education) => {
     setEducationList([...educationList, edu]);
   };
-  const addProfile = (profile: Profile) => {
-    setProfileList([...profileList, profile]);
+  const updateEducation = (index: number, updatedEdu: Education) => {
+    setEducationList(
+      educationList.map((edu, i) => (i === index ? updatedEdu : edu))
+    );
   };
+  const deleteEducation = (index: number) => {
+    setEducationList(educationList.filter((_, i) => i !== index));
+  };
+
   const addContact = (contact: Contact) => {
     setContactList([...contactList, contact]);
   };
+  const updateContact = (index: number, updatedContact: Contact) => {
+    setContactList(
+      contactList.map((profile, i) => (i === index ? updatedContact : profile))
+    );
+  };
+  const deleteContact = (index: number) => {
+    setContactList(contactList.filter((_, i) => i !== index));
+  };
+
   const addEmployment = (employment: Employment) => {
     setEmploymentList([...employmentList, employment]);
   };
+  const updateEmployment = (index: number, updatedEmployment: Employment) => {
+    setEmploymentList(
+      employmentList.map((employment, i) =>
+        i === index ? updatedEmployment : employment
+      )
+    );
+  };
+  const deleteEmployment = (index: number) => {
+    setEmploymentList(employmentList.filter((_, i) => i !== index));
+  };
+
+  const addProfile = (profile: Profile) => {
+    setProfileList([...profileList, profile]);
+  };
+  const updateProfile = (index: number, updatedProfile: Profile) => {
+    setProfileList(
+      profileList.map((profile, i) => (i === index ? updatedProfile : profile))
+    );
+  };
+  const deleteProfile = (index: number) => {
+    setProfileList(profileList.filter((_, i) => i !== index));
+  };
+
   const addSkills = (skills: Skills) => {
-    setSkillList([...skillList, skills]);
+    setSkillsList([...skillsList, skills]);
+  };
+  const updateSkills = (index: number, updatedSkills: Skills) => {
+    setSkillsList(
+      skillsList.map((skills, i) => (i === index ? updatedSkills : skills))
+    );
+  };
+  const deleteSkills = (index: number) => {
+    setSkillsList(skillsList.filter((_, i) => i !== index));
   };
 
   return (
@@ -46,15 +92,46 @@ const App = () => {
 
       <div className="row">
         <div className="col-md-6">
-          {activeTab === "Contact" && <ContactForm onAddContact={addContact} />}
-          {activeTab === "Profile" && <ProfileForm onAddProfile={addProfile} />}
+          {activeTab === "Contact" && (
+            <ContactForm
+              onAddContact={addContact}
+              onUpdateContact={updateContact}
+              onDeleteContact={deleteContact}
+              contactList={contactList}
+            />
+          )}
+          {activeTab === "Profile" && (
+            <ProfileForm
+              onAddProfile={addProfile}
+              onUpdateProfile={updateProfile}
+              onDeleteProfile={deleteProfile}
+              profileList={profileList}
+            />
+          )}
           {activeTab === "Employment history" && (
-            <EmploymentForm onAddEmployment={addEmployment} />
+            <EmploymentForm
+              onAddEmployment={addEmployment}
+              onUpdateEmployment={updateEmployment}
+              onDeleteEmployment={deleteEmployment}
+              employmentList={employmentList}
+            />
           )}
           {activeTab === "Education" && (
-            <EducationForm onAddEducation={addEducation} />
+            <EducationForm
+              onAddEducation={addEducation}
+              onUpdateEducation={updateEducation}
+              onDeleteEducation={deleteEducation}
+              educationList={educationList}
+            />
           )}
-          {activeTab === "Skills" && <SkillsForm onAddSkills={addSkills} />}
+          {activeTab === "Skills" && (
+            <SkillsForm
+              onAddSkills={addSkills}
+              onUpdateSkills={updateSkills}
+              onDeleteSkills={deleteSkills}
+              skillsList={skillsList}
+            />
+          )}
         </div>
 
         <div className="col-md-6">
@@ -63,7 +140,7 @@ const App = () => {
             contactList={contactList}
             profileList={profileList}
             employmentList={employmentList}
-            skillList={skillList}
+            skillList={skillsList}
           />
         </div>
       </div>
